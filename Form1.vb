@@ -12,7 +12,7 @@
             Me.Hide()
 
         Else
-            MsgBox("LOG IN ERROR")
+            MsgBox("Invalid Credentials")
         End If
     End Sub
 

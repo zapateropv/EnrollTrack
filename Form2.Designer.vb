@@ -24,8 +24,8 @@ Partial Class Form2
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.btnStudent = New System.Windows.Forms.Button()
         Me.btnSection = New System.Windows.Forms.Button()
@@ -58,6 +58,17 @@ Partial Class Form2
         Me.Panel2.Size = New System.Drawing.Size(1287, 111)
         Me.Panel2.TabIndex = 7
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label1.Location = New System.Drawing.Point(383, 35)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(544, 42)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Enrollment Management System"
+        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(114, Byte), Integer))
@@ -73,17 +84,6 @@ Partial Class Form2
         Me.Panel3.Size = New System.Drawing.Size(203, 680)
         Me.Panel3.TabIndex = 8
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label1.Location = New System.Drawing.Point(383, 35)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(544, 42)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Enrollment Management System"
-        '
         'btnHome
         '
         Me.btnHome.BackColor = System.Drawing.Color.Green
@@ -94,7 +94,7 @@ Partial Class Form2
         Me.btnHome.ForeColor = System.Drawing.Color.White
         Me.btnHome.Image = Global.EnrollTrack.My.Resources.Resources.icons8_home_30
         Me.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnHome.Location = New System.Drawing.Point(21, 43)
+        Me.btnHome.Location = New System.Drawing.Point(21, 45)
         Me.btnHome.Name = "btnHome"
         Me.btnHome.Size = New System.Drawing.Size(163, 48)
         Me.btnHome.TabIndex = 7
@@ -111,7 +111,7 @@ Partial Class Form2
         Me.btnStudent.ForeColor = System.Drawing.Color.White
         Me.btnStudent.Image = Global.EnrollTrack.My.Resources.Resources.icons8_user_30
         Me.btnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnStudent.Location = New System.Drawing.Point(21, 144)
+        Me.btnStudent.Location = New System.Drawing.Point(21, 146)
         Me.btnStudent.Name = "btnStudent"
         Me.btnStudent.Size = New System.Drawing.Size(163, 48)
         Me.btnStudent.TabIndex = 1
@@ -128,7 +128,7 @@ Partial Class Form2
         Me.btnSection.ForeColor = System.Drawing.Color.White
         Me.btnSection.Image = Global.EnrollTrack.My.Resources.Resources.icons8_room_25
         Me.btnSection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSection.Location = New System.Drawing.Point(21, 406)
+        Me.btnSection.Location = New System.Drawing.Point(21, 408)
         Me.btnSection.Name = "btnSection"
         Me.btnSection.Size = New System.Drawing.Size(163, 48)
         Me.btnSection.TabIndex = 5
@@ -145,7 +145,7 @@ Partial Class Form2
         Me.btnInstructor.ForeColor = System.Drawing.Color.White
         Me.btnInstructor.Image = Global.EnrollTrack.My.Resources.Resources.icons8_training_25
         Me.btnInstructor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnInstructor.Location = New System.Drawing.Point(21, 342)
+        Me.btnInstructor.Location = New System.Drawing.Point(21, 344)
         Me.btnInstructor.Name = "btnInstructor"
         Me.btnInstructor.Size = New System.Drawing.Size(163, 48)
         Me.btnInstructor.TabIndex = 4
@@ -162,7 +162,7 @@ Partial Class Form2
         Me.btnEnrollment.ForeColor = System.Drawing.Color.White
         Me.btnEnrollment.Image = Global.EnrollTrack.My.Resources.Resources.icons8_school_25
         Me.btnEnrollment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEnrollment.Location = New System.Drawing.Point(21, 471)
+        Me.btnEnrollment.Location = New System.Drawing.Point(21, 473)
         Me.btnEnrollment.Name = "btnEnrollment"
         Me.btnEnrollment.Size = New System.Drawing.Size(163, 48)
         Me.btnEnrollment.TabIndex = 6
@@ -179,7 +179,7 @@ Partial Class Form2
         Me.bnCourse.ForeColor = System.Drawing.Color.White
         Me.bnCourse.Image = Global.EnrollTrack.My.Resources.Resources.icons8_books_30
         Me.bnCourse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.bnCourse.Location = New System.Drawing.Point(21, 275)
+        Me.bnCourse.Location = New System.Drawing.Point(21, 277)
         Me.bnCourse.Name = "bnCourse"
         Me.bnCourse.Size = New System.Drawing.Size(163, 48)
         Me.bnCourse.TabIndex = 3
@@ -196,7 +196,7 @@ Partial Class Form2
         Me.btnDepartment.ForeColor = System.Drawing.Color.White
         Me.btnDepartment.Image = Global.EnrollTrack.My.Resources.Resources.icons8_department_201
         Me.btnDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDepartment.Location = New System.Drawing.Point(21, 210)
+        Me.btnDepartment.Location = New System.Drawing.Point(21, 212)
         Me.btnDepartment.Name = "btnDepartment"
         Me.btnDepartment.Size = New System.Drawing.Size(163, 48)
         Me.btnDepartment.TabIndex = 2

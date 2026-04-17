@@ -130,7 +130,7 @@ Partial Class frmInstructor
         'txtId
         '
         Me.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtId.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtId.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtId.Location = New System.Drawing.Point(204, 23)
         Me.txtId.Multiline = True
         Me.txtId.Name = "txtId"
@@ -141,7 +141,7 @@ Partial Class frmInstructor
         'txtFirst
         '
         Me.txtFirst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtFirst.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFirst.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFirst.Location = New System.Drawing.Point(204, 72)
         Me.txtFirst.Multiline = True
         Me.txtFirst.Name = "txtFirst"
@@ -152,7 +152,7 @@ Partial Class frmInstructor
         'txtLast
         '
         Me.txtLast.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtLast.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLast.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLast.Location = New System.Drawing.Point(204, 120)
         Me.txtLast.Multiline = True
         Me.txtLast.Name = "txtLast"
@@ -163,7 +163,7 @@ Partial Class frmInstructor
         'txtEmail
         '
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtEmail.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmail.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.Location = New System.Drawing.Point(204, 162)
         Me.txtEmail.Multiline = True
         Me.txtEmail.Name = "txtEmail"
@@ -174,7 +174,7 @@ Partial Class frmInstructor
         'txtDepartmentId
         '
         Me.txtDepartmentId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDepartmentId.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDepartmentId.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDepartmentId.Location = New System.Drawing.Point(204, 212)
         Me.txtDepartmentId.Multiline = True
         Me.txtDepartmentId.Name = "txtDepartmentId"
