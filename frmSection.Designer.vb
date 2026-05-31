@@ -40,8 +40,6 @@ Partial Class frmSection
         Me.timeStart = New System.Windows.Forms.DateTimePicker()
         Me.timeEnd = New System.Windows.Forms.DateTimePicker()
         Me.txtRoom = New System.Windows.Forms.TextBox()
-        Me.txtCourseId = New System.Windows.Forms.TextBox()
-        Me.txtInstructorId = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -56,11 +54,21 @@ Partial Class frmSection
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cmbSem = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbCourseID = New System.Windows.Forms.ComboBox()
+        Me.COURSEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cmbInstructorID = New System.Windows.Forms.ComboBox()
+        Me.INSTRUCTORBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EnrollmentDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.INSTRUCTORTableAdapter = New EnrollTrack.EnrollmentDBDataSetTableAdapters.INSTRUCTORTableAdapter()
+        Me.COURSETableAdapter = New EnrollTrack.EnrollmentDBDataSetTableAdapters.COURSETableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SECTIONBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EnrollmentDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.COURSEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.INSTRUCTORBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EnrollmentDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -148,10 +156,10 @@ Partial Class frmSection
         '
         Me.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtId.Location = New System.Drawing.Point(222, 53)
+        Me.txtId.Location = New System.Drawing.Point(222, 58)
         Me.txtId.Multiline = True
         Me.txtId.Name = "txtId"
-        Me.txtId.Size = New System.Drawing.Size(185, 34)
+        Me.txtId.Size = New System.Drawing.Size(185, 26)
         Me.txtId.TabIndex = 1
         Me.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -167,62 +175,42 @@ Partial Class frmSection
         '
         'timeStart
         '
-        Me.timeStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.timeStart.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.timeStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.timeStart.Location = New System.Drawing.Point(222, 169)
         Me.timeStart.Name = "timeStart"
         Me.timeStart.ShowUpDown = True
-        Me.timeStart.Size = New System.Drawing.Size(185, 29)
+        Me.timeStart.Size = New System.Drawing.Size(185, 24)
         Me.timeStart.TabIndex = 3
         '
         'timeEnd
         '
-        Me.timeEnd.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.timeEnd.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.timeEnd.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.timeEnd.Location = New System.Drawing.Point(222, 226)
         Me.timeEnd.Name = "timeEnd"
         Me.timeEnd.ShowUpDown = True
-        Me.timeEnd.Size = New System.Drawing.Size(185, 29)
+        Me.timeEnd.Size = New System.Drawing.Size(185, 24)
         Me.timeEnd.TabIndex = 4
         '
         'txtRoom
         '
         Me.txtRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtRoom.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRoom.Location = New System.Drawing.Point(772, 170)
+        Me.txtRoom.Location = New System.Drawing.Point(728, 120)
         Me.txtRoom.Multiline = True
         Me.txtRoom.Name = "txtRoom"
-        Me.txtRoom.Size = New System.Drawing.Size(183, 32)
+        Me.txtRoom.Size = New System.Drawing.Size(183, 28)
         Me.txtRoom.TabIndex = 6
         Me.txtRoom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtCourseId
-        '
-        Me.txtCourseId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtCourseId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourseId.Location = New System.Drawing.Point(772, 226)
-        Me.txtCourseId.Multiline = True
-        Me.txtCourseId.Name = "txtCourseId"
-        Me.txtCourseId.Size = New System.Drawing.Size(182, 34)
-        Me.txtCourseId.TabIndex = 7
-        Me.txtCourseId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtInstructorId
-        '
-        Me.txtInstructorId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtInstructorId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtInstructorId.Location = New System.Drawing.Point(772, 52)
-        Me.txtInstructorId.Multiline = True
-        Me.txtInstructorId.Name = "txtInstructorId"
-        Me.txtInstructorId.Size = New System.Drawing.Size(184, 32)
-        Me.txtInstructorId.TabIndex = 8
-        Me.txtInstructorId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(39, 53)
+        Me.Label1.Location = New System.Drawing.Point(39, 67)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(92, 20)
         Me.Label1.TabIndex = 9
@@ -232,7 +220,7 @@ Partial Class frmSection
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(39, 111)
+        Me.Label2.Location = New System.Drawing.Point(39, 124)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 20)
         Me.Label2.TabIndex = 10
@@ -242,7 +230,7 @@ Partial Class frmSection
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(39, 221)
+        Me.Label3.Location = New System.Drawing.Point(39, 233)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(80, 20)
         Me.Label3.TabIndex = 11
@@ -252,7 +240,7 @@ Partial Class frmSection
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(39, 171)
+        Me.Label4.Location = New System.Drawing.Point(39, 178)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(97, 20)
         Me.Label4.TabIndex = 12
@@ -262,7 +250,7 @@ Partial Class frmSection
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(588, 119)
+        Me.Label5.Location = New System.Drawing.Point(573, 64)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(85, 20)
         Me.Label5.TabIndex = 13
@@ -272,7 +260,7 @@ Partial Class frmSection
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(593, 171)
+        Me.Label6.Location = New System.Drawing.Point(573, 128)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(58, 20)
         Me.Label6.TabIndex = 14
@@ -282,7 +270,7 @@ Partial Class frmSection
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(593, 226)
+        Me.Label7.Location = New System.Drawing.Point(570, 183)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(88, 20)
         Me.Label7.TabIndex = 15
@@ -292,7 +280,7 @@ Partial Class frmSection
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(588, 64)
+        Me.Label8.Location = New System.Drawing.Point(570, 243)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(124, 20)
         Me.Label8.TabIndex = 16
@@ -358,30 +346,30 @@ Partial Class frmSection
         Me.cmbSem.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbSem.FormattingEnabled = True
         Me.cmbSem.Items.AddRange(New Object() {"1", "2", "3"})
-        Me.cmbSem.Location = New System.Drawing.Point(772, 120)
+        Me.cmbSem.Location = New System.Drawing.Point(728, 58)
         Me.cmbSem.Name = "cmbSem"
-        Me.cmbSem.Size = New System.Drawing.Size(184, 26)
+        Me.cmbSem.Size = New System.Drawing.Size(183, 26)
         Me.cmbSem.TabIndex = 23
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.cmbCourseID)
+        Me.Panel1.Controls.Add(Me.cmbInstructorID)
+        Me.Panel1.Controls.Add(Me.txtId)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.timeStart)
         Me.Panel1.Controls.Add(Me.btnClear)
         Me.Panel1.Controls.Add(Me.btnDelete)
         Me.Panel1.Controls.Add(Me.cmbSem)
         Me.Panel1.Controls.Add(Me.btnUpdate)
-        Me.Panel1.Controls.Add(Me.txtId)
         Me.Panel1.Controls.Add(Me.btnAdd)
         Me.Panel1.Controls.Add(Me.cmbDay)
         Me.Panel1.Controls.Add(Me.timeEnd)
-        Me.Panel1.Controls.Add(Me.txtInstructorId)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.txtCourseId)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label4)
@@ -393,6 +381,45 @@ Partial Class frmSection
         Me.Panel1.Size = New System.Drawing.Size(1025, 354)
         Me.Panel1.TabIndex = 24
         '
+        'cmbCourseID
+        '
+        Me.cmbCourseID.DataSource = Me.COURSEBindingSource
+        Me.cmbCourseID.DisplayMember = "name"
+        Me.cmbCourseID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbCourseID.FormattingEnabled = True
+        Me.cmbCourseID.Location = New System.Drawing.Point(728, 183)
+        Me.cmbCourseID.Name = "cmbCourseID"
+        Me.cmbCourseID.Size = New System.Drawing.Size(183, 23)
+        Me.cmbCourseID.TabIndex = 26
+        Me.cmbCourseID.ValueMember = "id"
+        '
+        'COURSEBindingSource
+        '
+        Me.COURSEBindingSource.DataMember = "COURSE"
+        Me.COURSEBindingSource.DataSource = Me.EnrollmentDBDataSet
+        '
+        'cmbInstructorID
+        '
+        Me.cmbInstructorID.DataSource = Me.INSTRUCTORBindingSource
+        Me.cmbInstructorID.DisplayMember = "last_name"
+        Me.cmbInstructorID.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbInstructorID.FormattingEnabled = True
+        Me.cmbInstructorID.Location = New System.Drawing.Point(728, 243)
+        Me.cmbInstructorID.Name = "cmbInstructorID"
+        Me.cmbInstructorID.Size = New System.Drawing.Size(183, 26)
+        Me.cmbInstructorID.TabIndex = 25
+        Me.cmbInstructorID.ValueMember = "id"
+        '
+        'INSTRUCTORBindingSource
+        '
+        Me.INSTRUCTORBindingSource.DataMember = "INSTRUCTOR"
+        Me.INSTRUCTORBindingSource.DataSource = Me.EnrollmentDBDataSetBindingSource
+        '
+        'EnrollmentDBDataSetBindingSource
+        '
+        Me.EnrollmentDBDataSetBindingSource.DataSource = Me.EnrollmentDBDataSet
+        Me.EnrollmentDBDataSetBindingSource.Position = 0
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -402,6 +429,14 @@ Partial Class frmSection
         Me.Label9.Size = New System.Drawing.Size(111, 25)
         Me.Label9.TabIndex = 24
         Me.Label9.Text = "SECTION"
+        '
+        'INSTRUCTORTableAdapter
+        '
+        Me.INSTRUCTORTableAdapter.ClearBeforeFill = True
+        '
+        'COURSETableAdapter
+        '
+        Me.COURSETableAdapter.ClearBeforeFill = True
         '
         'frmSection
         '
@@ -418,6 +453,9 @@ Partial Class frmSection
         CType(Me.EnrollmentDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.COURSEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.INSTRUCTORBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EnrollmentDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -431,8 +469,6 @@ Partial Class frmSection
     Friend WithEvents timeStart As DateTimePicker
     Friend WithEvents timeEnd As DateTimePicker
     Friend WithEvents txtRoom As TextBox
-    Friend WithEvents txtCourseId As TextBox
-    Friend WithEvents txtInstructorId As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -456,4 +492,11 @@ Partial Class frmSection
     Friend WithEvents COURSEidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents INSTRUCTORidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Label9 As Label
+    Friend WithEvents EnrollmentDBDataSetBindingSource As BindingSource
+    Friend WithEvents INSTRUCTORBindingSource As BindingSource
+    Friend WithEvents INSTRUCTORTableAdapter As EnrollmentDBDataSetTableAdapters.INSTRUCTORTableAdapter
+    Friend WithEvents cmbInstructorID As ComboBox
+    Friend WithEvents cmbCourseID As ComboBox
+    Friend WithEvents COURSEBindingSource As BindingSource
+    Friend WithEvents COURSETableAdapter As EnrollmentDBDataSetTableAdapters.COURSETableAdapter
 End Class

@@ -3,9 +3,12 @@
 Public Class frmInstructor
     Dim connectionString As String = "Server=VINCENT\SQLEXPRESS;DATABASE=EnrollmentDB;Trusted_Connection=True;"
     Private Sub frmInstructor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'EnrollmentDBDataSet1.DEPARTMENT' table. You can move, or remove it, as needed.
+        Me.DEPARTMENTTableAdapter1.Fill(Me.EnrollmentDBDataSet1.DEPARTMENT)
 
 
         displayTable()
+
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -42,13 +45,14 @@ Public Class frmInstructor
         Dim firstName As String = txtFirst.Text
         Dim lastName As String = txtLast.Text
         Dim email As String = txtEmail.Text
-        Dim departmentId As Integer = txtDepartmentId.Text
+        Dim cmbDepartment As Integer = cmbDpt.SelectedValue
+        'Dim departmentId As Integer = txtDepartmentId.Text
 
 
 
 
         Dim query As String = "INSERT INTO INSTRUCTOR (id, first_name, last_name, email, DEPARTMENT_id) 
-                                VALUES(@id, @firstName, @lastName, @email, @departmentId)"
+                                VALUES(@id, @firstName, @lastName, @email, @cmbDepartment)"
 
         Using con As New SqlConnection(connectionString)
             con.Open()
@@ -57,11 +61,11 @@ Public Class frmInstructor
                 command.Parameters.AddWithValue("@firstName", firstName)
                 command.Parameters.AddWithValue("@lastName", lastName)
                 command.Parameters.AddWithValue("@email", email)
-                command.Parameters.AddWithValue("@departmentId", departmentId)
+                command.Parameters.AddWithValue("@cmbDepartment", cmbDepartment)
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Added")
         displayTable()
         clearFields()
     End Sub
@@ -80,7 +84,7 @@ Public Class frmInstructor
                     command.ExecuteNonQuery()
                 End Using
             End Using
-
+            ShowMessage("Record Deleted")
             displayTable()
             clearFields()
         Catch ex As Exception
@@ -95,10 +99,11 @@ Public Class frmInstructor
         Dim firstName As String = txtFirst.Text
         Dim lastName As String = txtLast.Text
         Dim email As String = txtEmail.Text
-        Dim departmentId As Integer = txtDepartmentId.Text
+        Dim cmbDepartment As Integer = cmbDpt.SelectedValue
+        'Dim departmentId As Integer = txtDepartmentId.Text
 
         Dim query As String = "UPDATE INSTRUCTOR SET first_name = @firstName, 
-                                last_name = @lastName, email = @email, DEPARTMENT_ID = @departmentId WHERE id = @id"
+                                last_name = @lastName, email = @email, DEPARTMENT_ID = @cmbDepartment WHERE id = @id"
 
 
         Using con As New SqlConnection(connectionString)
@@ -108,11 +113,11 @@ Public Class frmInstructor
                 command.Parameters.AddWithValue("@firstName", firstName)
                 command.Parameters.AddWithValue("@lastName", lastName)
                 command.Parameters.AddWithValue("@email", email)
-                command.Parameters.AddWithValue("@departmentId", departmentId)
+                command.Parameters.AddWithValue("@cmbDepartment", cmbDepartment)
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Updated")
         displayTable()
         clearFields()
 
@@ -120,12 +125,18 @@ Public Class frmInstructor
     End Sub
 
 
+
+
     Private Sub clearFields()
         txtId.Clear()
         txtFirst.Clear()
         txtLast.Clear()
         txtEmail.Clear()
-        txtDepartmentId.Clear()
+
+    End Sub
+
+    Private Sub ShowMessage(message As String)
+        MsgBox(message)
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -133,13 +144,14 @@ Public Class frmInstructor
         txtFirst.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString()
         txtLast.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString()
         txtEmail.Text = DataGridView1.CurrentRow.Cells(3).Value.ToString()
-        txtDepartmentId.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString()
+        cmbDpt.SelectedValue = DataGridView1.CurrentRow.Cells(4).Value
+
     End Sub
 
 
     Private Function formValidation() As Boolean
 
-        If txtId.Text = "" Or txtFirst.Text = "" Or txtLast.Text = "" Or txtEmail.Text = "" Or txtDepartmentId.Text = "" Then
+        If txtId.Text = "" Or txtFirst.Text = "" Or txtLast.Text = "" Or txtEmail.Text = "" Or cmbDpt.Text = "" Then
 
             MsgBox("Inputs can't be empty!")
             Return False
@@ -148,5 +160,6 @@ Public Class frmInstructor
         Return True
 
     End Function
+
 
 End Class

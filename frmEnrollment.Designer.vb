@@ -36,7 +36,6 @@ Partial Class frmEnrollment
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.txtGrade = New System.Windows.Forms.TextBox()
-        Me.txtStudentId = New System.Windows.Forms.TextBox()
         Me.txtSectionId = New System.Windows.Forms.TextBox()
         Me.id = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -45,6 +44,7 @@ Partial Class frmEnrollment
         Me.ENROLLMENTTableAdapter = New EnrollTrack.EnrollmentDBDataSetTableAdapters.ENROLLMENTTableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmbStudentID = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ENROLLMENTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EnrollmentDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -181,17 +181,6 @@ Partial Class frmEnrollment
         Me.txtGrade.TabIndex = 23
         Me.txtGrade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtStudentId
-        '
-        Me.txtStudentId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtStudentId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStudentId.Location = New System.Drawing.Point(183, 210)
-        Me.txtStudentId.Multiline = True
-        Me.txtStudentId.Name = "txtStudentId"
-        Me.txtStudentId.Size = New System.Drawing.Size(214, 30)
-        Me.txtStudentId.TabIndex = 24
-        Me.txtStudentId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'txtSectionId
         '
         Me.txtSectionId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -250,6 +239,7 @@ Partial Class frmEnrollment
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.cmbStudentID)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtGrade)
         Me.Panel1.Controls.Add(Me.btnClear)
@@ -258,7 +248,6 @@ Partial Class frmEnrollment
         Me.Panel1.Controls.Add(Me.btnUpdate)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.btnAdd)
-        Me.Panel1.Controls.Add(Me.txtStudentId)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.txtId)
         Me.Panel1.Controls.Add(Me.id)
@@ -277,6 +266,14 @@ Partial Class frmEnrollment
         Me.Label1.Size = New System.Drawing.Size(150, 24)
         Me.Label1.TabIndex = 30
         Me.Label1.Text = "ENROLLMENT"
+        '
+        'cmbStudentID
+        '
+        Me.cmbStudentID.FormattingEnabled = True
+        Me.cmbStudentID.Location = New System.Drawing.Point(183, 222)
+        Me.cmbStudentID.Name = "cmbStudentID"
+        Me.cmbStudentID.Size = New System.Drawing.Size(214, 21)
+        Me.cmbStudentID.TabIndex = 31
         '
         'frmEnrollment
         '
@@ -304,7 +301,6 @@ Partial Class frmEnrollment
     Friend WithEvents btnAdd As Button
     Friend WithEvents txtId As TextBox
     Friend WithEvents txtGrade As TextBox
-    Friend WithEvents txtStudentId As TextBox
     Friend WithEvents txtSectionId As TextBox
     Friend WithEvents id As Label
     Friend WithEvents Label2 As Label
@@ -319,4 +315,5 @@ Partial Class frmEnrollment
     Friend WithEvents STUDENTidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
+    Friend WithEvents cmbStudentID As ComboBox
 End Class

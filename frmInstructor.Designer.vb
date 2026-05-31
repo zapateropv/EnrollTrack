@@ -36,7 +36,6 @@ Partial Class frmInstructor
         Me.txtFirst = New System.Windows.Forms.TextBox()
         Me.txtLast = New System.Windows.Forms.TextBox()
         Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.txtDepartmentId = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -46,16 +45,24 @@ Partial Class frmInstructor
         Me.DEPARTMENTBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DEPARTMENTTableAdapter = New EnrollTrack.EnrollmentDBDataSetTableAdapters.DEPARTMENTTableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbDpt = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
+        Me.DEPARTMENTBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EnrollmentDBDataSet1 = New EnrollTrack.EnrollmentDBDataSet1()
+        Me.DEPARTMENTBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DEPARTMENTTableAdapter1 = New EnrollTrack.EnrollmentDBDataSet1TableAdapters.DEPARTMENTTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INSTRUCTORBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EnrollmentDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DEPARTMENTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.DEPARTMENTBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EnrollmentDBDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DEPARTMENTBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -171,17 +178,6 @@ Partial Class frmInstructor
         Me.txtEmail.TabIndex = 18
         Me.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtDepartmentId
-        '
-        Me.txtDepartmentId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDepartmentId.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDepartmentId.Location = New System.Drawing.Point(204, 212)
-        Me.txtDepartmentId.Multiline = True
-        Me.txtDepartmentId.Name = "txtDepartmentId"
-        Me.txtDepartmentId.Size = New System.Drawing.Size(215, 28)
-        Me.txtDepartmentId.TabIndex = 19
-        Me.txtDepartmentId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -254,6 +250,7 @@ Partial Class frmInstructor
         '
         Me.Panel1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.cmbDpt)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.txtEmail)
         Me.Panel1.Controls.Add(Me.btnClear)
@@ -262,7 +259,6 @@ Partial Class frmInstructor
         Me.Panel1.Controls.Add(Me.btnUpdate)
         Me.Panel1.Controls.Add(Me.txtId)
         Me.Panel1.Controls.Add(Me.btnAdd)
-        Me.Panel1.Controls.Add(Me.txtDepartmentId)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.txtFirst)
         Me.Panel1.Controls.Add(Me.Label4)
@@ -274,6 +270,17 @@ Partial Class frmInstructor
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1025, 266)
         Me.Panel1.TabIndex = 26
+        '
+        'cmbDpt
+        '
+        Me.cmbDpt.DataSource = Me.DEPARTMENTBindingSource2
+        Me.cmbDpt.DisplayMember = "name"
+        Me.cmbDpt.FormattingEnabled = True
+        Me.cmbDpt.Location = New System.Drawing.Point(204, 219)
+        Me.cmbDpt.Name = "cmbDpt"
+        Me.cmbDpt.Size = New System.Drawing.Size(215, 21)
+        Me.cmbDpt.TabIndex = 27
+        Me.cmbDpt.ValueMember = "id"
         '
         'Label7
         '
@@ -344,6 +351,25 @@ Partial Class frmInstructor
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = False
         '
+        'DEPARTMENTBindingSource2
+        '
+        Me.DEPARTMENTBindingSource2.DataMember = "DEPARTMENT"
+        Me.DEPARTMENTBindingSource2.DataSource = Me.EnrollmentDBDataSet1
+        '
+        'EnrollmentDBDataSet1
+        '
+        Me.EnrollmentDBDataSet1.DataSetName = "EnrollmentDBDataSet1"
+        Me.EnrollmentDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DEPARTMENTBindingSource1
+        '
+        Me.DEPARTMENTBindingSource1.DataMember = "DEPARTMENT"
+        Me.DEPARTMENTBindingSource1.DataSource = Me.EnrollmentDBDataSet
+        '
+        'DEPARTMENTTableAdapter1
+        '
+        Me.DEPARTMENTTableAdapter1.ClearBeforeFill = True
+        '
         'frmInstructor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -360,6 +386,9 @@ Partial Class frmInstructor
         CType(Me.DEPARTMENTBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.DEPARTMENTBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EnrollmentDBDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DEPARTMENTBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -372,7 +401,6 @@ Partial Class frmInstructor
     Friend WithEvents txtFirst As TextBox
     Friend WithEvents txtLast As TextBox
     Friend WithEvents txtEmail As TextBox
-    Friend WithEvents txtDepartmentId As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -392,4 +420,9 @@ Partial Class frmInstructor
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnAdd As Button
     Friend WithEvents Label7 As Label
+    Friend WithEvents cmbDpt As ComboBox
+    Friend WithEvents DEPARTMENTBindingSource1 As BindingSource
+    Friend WithEvents EnrollmentDBDataSet1 As EnrollmentDBDataSet1
+    Friend WithEvents DEPARTMENTBindingSource2 As BindingSource
+    Friend WithEvents DEPARTMENTTableAdapter1 As EnrollmentDBDataSet1TableAdapters.DEPARTMENTTableAdapter
 End Class

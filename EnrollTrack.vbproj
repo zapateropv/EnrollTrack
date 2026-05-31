@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EnrollmentDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EnrollmentDBDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnrollmentDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +200,17 @@
     </None>
     <None Include="EnrollmentDBDataSet.xss">
       <DependentUpon>EnrollmentDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EnrollmentDBDataSet1.xsc">
+      <DependentUpon>EnrollmentDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EnrollmentDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EnrollmentDBDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EnrollmentDBDataSet1.xss">
+      <DependentUpon>EnrollmentDBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

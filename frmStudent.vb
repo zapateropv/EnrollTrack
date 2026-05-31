@@ -34,8 +34,6 @@ Public Class frmStudent
     Private Sub insertData()
 
 
-
-
         If formValidation() = False Then
             Exit Sub
         End If
@@ -63,8 +61,8 @@ Public Class frmStudent
                     command.ExecuteNonQuery()
                 End Using
             End Using
-
-            displayTable()
+        ShowMessage("Record Added! ")
+        displayTable()
             clearFields()
 
 
@@ -84,7 +82,7 @@ Public Class frmStudent
                 End Using
             End Using
 
-
+            ShowMessage("Record Deleted! ")
             displayTable()
             clearFields()
         Catch ex As Exception
@@ -123,7 +121,7 @@ Public Class frmStudent
         End Using
 
 
-
+        ShowMessage("Record Updated! ")
         displayTable()
         clearFields()
 
@@ -151,6 +149,10 @@ Public Class frmStudent
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         clearFields()
+    End Sub
+
+    Private Sub ShowMessage(message As String)
+        MsgBox(message)
     End Sub
 
     Private Function formValidation() As Boolean

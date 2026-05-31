@@ -5,6 +5,10 @@ Public Class frmSection
 
     Dim connectionString As String = "Server=VINCENT\SQLEXPRESS;DATABASE=EnrollmentDB;Trusted_Connection=True;"
     Private Sub frmSection_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'EnrollmentDBDataSet.COURSE' table. You can move, or remove it, as needed.
+        Me.COURSETableAdapter.Fill(Me.EnrollmentDBDataSet.COURSE)
+        'TODO: This line of code loads data into the 'EnrollmentDBDataSet.INSTRUCTOR' table. You can move, or remove it, as needed.
+        Me.INSTRUCTORTableAdapter.Fill(Me.EnrollmentDBDataSet.INSTRUCTOR)
 
         displayTable()
 
@@ -49,12 +53,14 @@ Public Class frmSection
         Dim end_Time As String = timeEnd.Text
         Dim semester As Integer = cmbSem.Text
         Dim room As String = txtRoom.Text
-        Dim course_id As Integer = txtCourseId.Text
-        Dim instructor_id As String = txtInstructorId.Text
+        ' Dim course_id As Integer = txtCourseId.Text
+        ' Dim instructor_id As String = txtInstructorId.Text
+        Dim instructorID As Integer = cmbInstructorID.SelectedValue
+        Dim courseID As Integer = cmbCourseID.SelectedValue
 
 
         Dim query As String = "INSERT INTO SECTION (id, day_of_week, start_time, end_time, semester, room, COURSE_id, INSTRUCTOR_id) 
-                                VALUES(@id, @day, @start_Time, @end_Time, @semester, @room, @course_id, @instructor_id)"
+                                VALUES(@id, @day, @start_Time, @end_Time, @semester, @room, @courseID, @instructorID)"
 
         Using con As New SqlConnection(connectionString)
             con.Open()
@@ -65,12 +71,12 @@ Public Class frmSection
                 command.Parameters.AddWithValue("@end_Time", end_Time)
                 command.Parameters.AddWithValue("@semester", semester)
                 command.Parameters.AddWithValue("@room", room)
-                command.Parameters.AddWithValue("@course_id", course_id)
-                command.Parameters.AddWithValue("@instructor_id", instructor_id)
+                command.Parameters.AddWithValue("@courseID", courseID)
+                command.Parameters.AddWithValue("@instructorID", instructorID)
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Added")
         displayTable()
         clearFields()
     End Sub
@@ -88,7 +94,7 @@ Public Class frmSection
                     command.ExecuteNonQuery()
                 End Using
             End Using
-
+            ShowMessage("Record Deleted")
             displayTable()
             clearFields()
         Catch ex As Exception
@@ -105,11 +111,13 @@ Public Class frmSection
         Dim end_Time As String = timeEnd.Text
         Dim semester As Integer = cmbSem.Text
         Dim room As String = txtRoom.Text
-        Dim course_id As Integer = txtCourseId.Text
-        Dim instructor_id As String = txtInstructorId.Text
+        Dim instructorID As Integer = cmbInstructorID.SelectedValue
+        Dim courseID As Integer = cmbCourseID.SelectedValue
+        'Dim course_id As Integer = txtCourseId.Text
+        'Dim instructor_id As String = txtInstructorId.Text
 
         Dim query As String = "UPDATE SECTION SET day_of_week = @day, start_time = @start_Time, end_time = @end_Time, semester = @semester
-                                ,room = @room, COURSE_id = @course_id, INSTRUCTOR_id = @instructor_id WHERE id = @id"
+                                ,room = @room, COURSE_id = @courseID, INSTRUCTOR_id = @instructorID WHERE id = @id"
 
 
         Using con As New SqlConnection(connectionString)
@@ -121,12 +129,12 @@ Public Class frmSection
                 command.Parameters.AddWithValue("@end_Time", end_Time)
                 command.Parameters.AddWithValue("@semester", semester)
                 command.Parameters.AddWithValue("@room", room)
-                command.Parameters.AddWithValue("@course_id", course_id)
-                command.Parameters.AddWithValue("@instructor_id", instructor_id)
+                command.Parameters.AddWithValue("@courseID", courseID)
+                command.Parameters.AddWithValue("@instructorID", instructorID)
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Updated")
         displayTable()
         clearFields()
 
@@ -141,8 +149,11 @@ Public Class frmSection
         timeEnd.Value = DateTime.Now
         cmbSem.SelectedIndex = -1
         txtRoom.Clear()
-        txtCourseId.Clear()
-        txtInstructorId.Clear()
+
+    End Sub
+
+    Private Sub ShowMessage(message As String)
+        MsgBox(message)
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -152,13 +163,13 @@ Public Class frmSection
         timeEnd.Text = DataGridView1.CurrentRow.Cells(3).Value.ToString()
         cmbSem.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString()
         txtRoom.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString()
-        txtCourseId.Text = DataGridView1.CurrentRow.Cells(6).Value.ToString()
-        txtInstructorId.Text = DataGridView1.CurrentRow.Cells(7).Value.ToString()
+        cmbInstructorID.SelectedValue = DataGridView1.CurrentRow.Cells(6).Value
+        cmbCourseID.SelectedValue = DataGridView1.CurrentRow.Cells(7).Value
     End Sub
 
     Private Function formValidation() As Boolean
 
-        If txtId.Text = "" Or txtId.Text = "" Or cmbDay.Text = "" Or timeStart.Text = "" Or timeEnd.Text = "" Or cmbSem.Text = "" Or txtRoom.Text = "" Or txtCourseId.Text = "" Or txtInstructorId.Text = "" Then
+        If txtId.Text = "" Or txtId.Text = "" Or cmbDay.Text = "" Or timeStart.Text = "" Or timeEnd.Text = "" Or cmbSem.Text = "" Or txtRoom.Text = "" Or cmbCourseID.Text = "" Or cmbInstructorID.Text = "" Then
 
             MsgBox("Inputs can't be empty!")
             Return False
@@ -167,5 +178,6 @@ Public Class frmSection
         Return True
 
     End Function
+
 
 End Class

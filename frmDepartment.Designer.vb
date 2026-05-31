@@ -58,11 +58,13 @@ Partial Class frmDepartment
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.DEPARTMENTBindingSource1
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 286)
+        Me.DataGridView1.Location = New System.Drawing.Point(68, 521)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1026, 339)
+        Me.DataGridView1.Size = New System.Drawing.Size(1368, 417)
         Me.DataGridView1.TabIndex = 0
         '
         'IdDataGridViewTextBoxColumn
@@ -70,6 +72,7 @@ Partial Class frmDepartment
         Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
         Me.IdDataGridViewTextBoxColumn.HeaderText = "DEPARTMENT ID"
+        Me.IdDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
         Me.IdDataGridViewTextBoxColumn.ReadOnly = True
         '
@@ -78,6 +81,7 @@ Partial Class frmDepartment
         Me.NameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.NameDataGridViewTextBoxColumn.DataPropertyName = "name"
         Me.NameDataGridViewTextBoxColumn.HeaderText = "NAME"
+        Me.NameDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
         Me.NameDataGridViewTextBoxColumn.ReadOnly = True
         '
@@ -86,6 +90,7 @@ Partial Class frmDepartment
         Me.DescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "description"
         Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "DESCRIPTION"
+        Me.DescriptionDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
         Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
         '
@@ -112,10 +117,11 @@ Partial Class frmDepartment
         '
         Me.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtId.Location = New System.Drawing.Point(199, 54)
+        Me.txtId.Location = New System.Drawing.Point(265, 66)
+        Me.txtId.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtId.Multiline = True
         Me.txtId.Name = "txtId"
-        Me.txtId.Size = New System.Drawing.Size(213, 33)
+        Me.txtId.Size = New System.Drawing.Size(283, 40)
         Me.txtId.TabIndex = 1
         Me.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -123,10 +129,11 @@ Partial Class frmDepartment
         '
         Me.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.Location = New System.Drawing.Point(199, 114)
+        Me.txtName.Location = New System.Drawing.Point(265, 140)
+        Me.txtName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtName.Multiline = True
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(213, 33)
+        Me.txtName.Size = New System.Drawing.Size(283, 40)
         Me.txtName.TabIndex = 2
         Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -134,10 +141,11 @@ Partial Class frmDepartment
         '
         Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescription.Location = New System.Drawing.Point(199, 178)
+        Me.txtDescription.Location = New System.Drawing.Point(265, 219)
+        Me.txtDescription.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtDescription.Multiline = True
         Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.Size = New System.Drawing.Size(213, 31)
+        Me.txtDescription.Size = New System.Drawing.Size(283, 38)
         Me.txtDescription.TabIndex = 3
         Me.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -145,9 +153,10 @@ Partial Class frmDepartment
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(35, 71)
+        Me.Label1.Location = New System.Drawing.Point(47, 87)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(118, 16)
+        Me.Label1.Size = New System.Drawing.Size(146, 20)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "DEPARTMENT ID"
         '
@@ -155,9 +164,10 @@ Partial Class frmDepartment
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(35, 131)
+        Me.Label2.Location = New System.Drawing.Point(47, 161)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(144, 16)
+        Me.Label2.Size = New System.Drawing.Size(177, 20)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "DEPARTMENT NAME"
         '
@@ -165,9 +175,10 @@ Partial Class frmDepartment
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(35, 193)
+        Me.Label3.Location = New System.Drawing.Point(47, 238)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(98, 16)
+        Me.Label3.Size = New System.Drawing.Size(122, 20)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "DESCRIPTION"
         '
@@ -178,9 +189,10 @@ Partial Class frmDepartment
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(515, 106)
+        Me.btnAdd.Location = New System.Drawing.Point(687, 130)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(127, 41)
+        Me.btnAdd.Size = New System.Drawing.Size(169, 50)
         Me.btnAdd.TabIndex = 7
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = False
@@ -191,9 +203,10 @@ Partial Class frmDepartment
         Me.btnUpdate.FlatAppearance.BorderSize = 0
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.Location = New System.Drawing.Point(515, 168)
+        Me.btnUpdate.Location = New System.Drawing.Point(687, 207)
+        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(127, 41)
+        Me.btnUpdate.Size = New System.Drawing.Size(169, 50)
         Me.btnUpdate.TabIndex = 8
         Me.btnUpdate.Text = "UPDATE"
         Me.btnUpdate.UseVisualStyleBackColor = False
@@ -205,9 +218,10 @@ Partial Class frmDepartment
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(687, 106)
+        Me.btnDelete.Location = New System.Drawing.Point(916, 130)
+        Me.btnDelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(127, 41)
+        Me.btnDelete.Size = New System.Drawing.Size(169, 50)
         Me.btnDelete.TabIndex = 9
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = False
@@ -219,9 +233,10 @@ Partial Class frmDepartment
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(687, 168)
+        Me.btnClear.Location = New System.Drawing.Point(916, 207)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(127, 41)
+        Me.btnClear.Size = New System.Drawing.Size(169, 50)
         Me.btnClear.TabIndex = 10
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -240,29 +255,32 @@ Partial Class frmDepartment
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Location = New System.Drawing.Point(12, 13)
+        Me.Panel1.Location = New System.Drawing.Point(16, 16)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1026, 238)
+        Me.Panel1.Size = New System.Drawing.Size(1367, 292)
         Me.Panel1.TabIndex = 11
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(392, 11)
+        Me.Label4.Location = New System.Drawing.Point(523, 14)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(151, 24)
+        Me.Label4.Size = New System.Drawing.Size(190, 29)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "DEPARTMENT"
         '
         'frmDepartment
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(1061, 637)
+        Me.ClientSize = New System.Drawing.Size(1415, 784)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmDepartment"
         Me.Text = "DEPARTMENT"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

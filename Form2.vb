@@ -15,28 +15,28 @@ Public Class Form2
     End Sub
 
     Private Sub btnStudent_Click(sender As Object, e As EventArgs) Handles btnStudent.Click
-        toggleForm(frmStudent)
+        toggleForm(New frmStudent())
     End Sub
 
     Private Sub btnDepartment_Click(sender As Object, e As EventArgs) Handles btnDepartment.Click
-        toggleForm(frmDepartment)
+        toggleForm(New frmDepartment())
     End Sub
 
 
     Private Sub btnInstructor_Click(sender As Object, e As EventArgs) Handles btnInstructor.Click
-        toggleForm(frmInstructor)
+        toggleForm(New frmInstructor())
     End Sub
 
     Private Sub bnCourse_Click(sender As Object, e As EventArgs) Handles bnCourse.Click
-        toggleForm(frmCourse)
+        toggleForm(New frmCourse())
     End Sub
 
     Private Sub btnSection_Click(sender As Object, e As EventArgs) Handles btnSection.Click
-        toggleForm(frmSection)
+        toggleForm(New frmSection())
     End Sub
 
     Private Sub btnEnrollment_Click(sender As Object, e As EventArgs) Handles btnEnrollment.Click
-        toggleForm(frmEnrollment)
+        toggleForm(New frmEnrollment())
     End Sub
 
 

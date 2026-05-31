@@ -30,7 +30,6 @@ Partial Class frmCourse
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.txtDepartmentId = New System.Windows.Forms.TextBox()
         Me.txtUnits = New System.Windows.Forms.TextBox()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtCode = New System.Windows.Forms.TextBox()
@@ -42,9 +41,14 @@ Partial Class frmCourse
         Me.Label5 = New System.Windows.Forms.Label()
         Me.COURSETableAdapter = New EnrollTrack.EnrollmentDBDataSetTableAdapters.COURSETableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmbDpt = New System.Windows.Forms.ComboBox()
         Me.DEPARTMENTBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.DEPARTMENTTableAdapter = New EnrollTrack.EnrollmentDBDataSetTableAdapters.DEPARTMENTTableAdapter()
+        Me.FKSECTIONCOURSEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SECTIONTableAdapter = New EnrollTrack.EnrollmentDBDataSetTableAdapters.SECTIONTableAdapter()
+        Me.FillByToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.FillByToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,6 +59,8 @@ Partial Class frmCourse
         CType(Me.EnrollmentDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DEPARTMENTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FKSECTIONCOURSEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillByToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -137,17 +143,6 @@ Partial Class frmCourse
         Me.btnAdd.TabIndex = 15
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = False
-        '
-        'txtDepartmentId
-        '
-        Me.txtDepartmentId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDepartmentId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDepartmentId.Location = New System.Drawing.Point(223, 272)
-        Me.txtDepartmentId.Multiline = True
-        Me.txtDepartmentId.Name = "txtDepartmentId"
-        Me.txtDepartmentId.Size = New System.Drawing.Size(243, 32)
-        Me.txtDepartmentId.TabIndex = 24
-        Me.txtDepartmentId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtUnits
         '
@@ -250,6 +245,7 @@ Partial Class frmCourse
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.cmbDpt)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.btnClear)
         Me.Panel1.Controls.Add(Me.Label5)
@@ -262,13 +258,29 @@ Partial Class frmCourse
         Me.Panel1.Controls.Add(Me.txtId)
         Me.Panel1.Controls.Add(Me.ID)
         Me.Panel1.Controls.Add(Me.txtCode)
-        Me.Panel1.Controls.Add(Me.txtDepartmentId)
         Me.Panel1.Controls.Add(Me.txtName)
         Me.Panel1.Controls.Add(Me.txtUnits)
         Me.Panel1.Location = New System.Drawing.Point(23, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1012, 324)
         Me.Panel1.TabIndex = 30
+        '
+        'cmbDpt
+        '
+        Me.cmbDpt.DataSource = Me.DEPARTMENTBindingSource
+        Me.cmbDpt.DisplayMember = "name"
+        Me.cmbDpt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbDpt.FormattingEnabled = True
+        Me.cmbDpt.Location = New System.Drawing.Point(223, 272)
+        Me.cmbDpt.Name = "cmbDpt"
+        Me.cmbDpt.Size = New System.Drawing.Size(243, 24)
+        Me.cmbDpt.TabIndex = 31
+        Me.cmbDpt.ValueMember = "id"
+        '
+        'DEPARTMENTBindingSource
+        '
+        Me.DEPARTMENTBindingSource.DataMember = "DEPARTMENT"
+        Me.DEPARTMENTBindingSource.DataSource = Me.EnrollmentDBDataSet
         '
         'Label1
         '
@@ -280,14 +292,34 @@ Partial Class frmCourse
         Me.Label1.TabIndex = 30
         Me.Label1.Text = "COURSE"
         '
-        'DEPARTMENTBindingSource
-        '
-        Me.DEPARTMENTBindingSource.DataMember = "DEPARTMENT"
-        Me.DEPARTMENTBindingSource.DataSource = Me.EnrollmentDBDataSet
-        '
         'DEPARTMENTTableAdapter
         '
         Me.DEPARTMENTTableAdapter.ClearBeforeFill = True
+        '
+        'FKSECTIONCOURSEBindingSource
+        '
+        Me.FKSECTIONCOURSEBindingSource.DataMember = "FK_SECTION_COURSE"
+        Me.FKSECTIONCOURSEBindingSource.DataSource = Me.COURSEBindingSource
+        '
+        'SECTIONTableAdapter
+        '
+        Me.SECTIONTableAdapter.ClearBeforeFill = True
+        '
+        'FillByToolStrip
+        '
+        Me.FillByToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillByToolStripButton})
+        Me.FillByToolStrip.Location = New System.Drawing.Point(0, 0)
+        Me.FillByToolStrip.Name = "FillByToolStrip"
+        Me.FillByToolStrip.Size = New System.Drawing.Size(1061, 25)
+        Me.FillByToolStrip.TabIndex = 31
+        Me.FillByToolStrip.Text = "FillByToolStrip"
+        '
+        'FillByToolStripButton
+        '
+        Me.FillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillByToolStripButton.Name = "FillByToolStripButton"
+        Me.FillByToolStripButton.Size = New System.Drawing.Size(39, 22)
+        Me.FillByToolStripButton.Text = "FillBy"
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -330,6 +362,7 @@ Partial Class frmCourse
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1061, 656)
+        Me.Controls.Add(Me.FillByToolStrip)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "frmCourse"
@@ -340,7 +373,11 @@ Partial Class frmCourse
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.DEPARTMENTBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FKSECTIONCOURSEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillByToolStrip.ResumeLayout(False)
+        Me.FillByToolStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -349,7 +386,6 @@ Partial Class frmCourse
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnAdd As Button
-    Friend WithEvents txtDepartmentId As TextBox
     Friend WithEvents txtUnits As TextBox
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtCode As TextBox
@@ -366,6 +402,11 @@ Partial Class frmCourse
     Friend WithEvents Label1 As Label
     Friend WithEvents DEPARTMENTBindingSource As BindingSource
     Friend WithEvents DEPARTMENTTableAdapter As EnrollmentDBDataSetTableAdapters.DEPARTMENTTableAdapter
+    Friend WithEvents cmbDpt As ComboBox
+    Friend WithEvents FKSECTIONCOURSEBindingSource As BindingSource
+    Friend WithEvents SECTIONTableAdapter As EnrollmentDBDataSetTableAdapters.SECTIONTableAdapter
+    Friend WithEvents FillByToolStrip As ToolStrip
+    Friend WithEvents FillByToolStripButton As ToolStripButton
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CodeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

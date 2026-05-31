@@ -56,7 +56,7 @@ Public Class frmDepartment
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Added! ")
         displayTable()
         clearFields()
     End Sub
@@ -74,7 +74,7 @@ Public Class frmDepartment
                     command.ExecuteNonQuery()
                 End Using
             End Using
-
+            ShowMessage("Record Deleted! ")
             displayTable()
             clearFields()
         Catch ex As Exception
@@ -100,7 +100,7 @@ Public Class frmDepartment
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Updated! ")
         displayTable()
         clearFields()
     End Sub
@@ -110,6 +110,10 @@ Public Class frmDepartment
         txtId.Clear()
         txtName.Clear()
         txtDescription.Clear()
+    End Sub
+
+    Private Sub ShowMessage(message As String)
+        MsgBox(message)
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick

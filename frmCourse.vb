@@ -3,6 +3,8 @@
 Public Class frmCourse
     Dim connectionString As String = "Server=VINCENT\SQLEXPRESS;DATABASE=EnrollmentDB;Trusted_Connection=True;"
     Private Sub frmCourse_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'EnrollmentDBDataSet.SECTION' table. You can move, or remove it, as needed.
+        Me.SECTIONTableAdapter.Fill(Me.EnrollmentDBDataSet.SECTION)
         'TODO: This line of code loads data into the 'EnrollmentDBDataSet.DEPARTMENT' table. You can move, or remove it, as needed.
         Me.DEPARTMENTTableAdapter.Fill(Me.EnrollmentDBDataSet.DEPARTMENT)
 
@@ -36,7 +38,7 @@ Public Class frmCourse
 
     Private Sub insertData()
 
-        
+
         If formValidation() = False Then
             Exit Sub
         End If
@@ -45,11 +47,12 @@ Public Class frmCourse
         Dim code As String = txtCode.Text
         Dim name As String = txtName.Text
         Dim units As Integer = txtUnits.Text
-        Dim departmentId As Integer = txtDepartmentId.Text
+        Dim cmbTry As Integer = cmbDpt.SelectedValue
+
 
 
         Dim query As String = "INSERT INTO COURSE (id, code, name, units, DEPARTMENT_id) 
-                                VALUES(@id, @code, @name, @units, @departmentId)"
+                                VALUES(@id, @code, @name, @units, @cmbTry)"
 
         Using con As New SqlConnection(connectionString)
             con.Open()
@@ -58,11 +61,11 @@ Public Class frmCourse
                 command.Parameters.AddWithValue("@code", code)
                 command.Parameters.AddWithValue("@name", name)
                 command.Parameters.AddWithValue("@units", units)
-                command.Parameters.AddWithValue("@departmentId", departmentId)
+                command.Parameters.AddWithValue("@cmbTry", cmbTry)
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Added! ")
         displayTable()
         clearFields()
     End Sub
@@ -81,7 +84,7 @@ Public Class frmCourse
                     command.ExecuteNonQuery()
                 End Using
             End Using
-
+            ShowMessage("Record Deleted! ")
             displayTable()
             clearFields()
         Catch ex As Exception
@@ -96,9 +99,9 @@ Public Class frmCourse
         Dim code As String = txtCode.Text
         Dim name As String = txtName.Text
         Dim units As Integer = txtUnits.Text
-        Dim departmentId As Integer = txtDepartmentId.Text
+        Dim cmbTry As Integer = cmbDpt.SelectedValue
 
-        Dim query As String = "UPDATE COURSE SET code = @code, name = @name, units= @units, DEPARTMENT_id = @departmentId
+        Dim query As String = "UPDATE COURSE SET code = @code, name = @name, units= @units, DEPARTMENT_id = @cmbTry
                                 WHERE id = @id"
 
 
@@ -109,11 +112,11 @@ Public Class frmCourse
                 command.Parameters.AddWithValue("@code", code)
                 command.Parameters.AddWithValue("@name", name)
                 command.Parameters.AddWithValue("@units", units)
-                command.Parameters.AddWithValue("@departmentId", departmentId)
+                command.Parameters.AddWithValue("@cmbTry", cmbTry)
                 command.ExecuteNonQuery()
             End Using
         End Using
-
+        ShowMessage("Record Updated! ")
         displayTable()
         clearFields()
 
@@ -125,20 +128,25 @@ Public Class frmCourse
         txtCode.Clear()
         txtName.Clear()
         txtUnits.Clear()
-        txtDepartmentId.Clear()
+
     End Sub
+
+    Private Sub ShowMessage(message As String)
+        MsgBox(message)
+    End Sub
+
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         txtId.Text = DataGridView1.CurrentRow.Cells(0).Value.ToString()
         txtCode.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString()
         txtName.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString()
         txtUnits.Text = DataGridView1.CurrentRow.Cells(3).Value.ToString()
-        txtDepartmentId.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString()
+        cmbDpt.SelectedValue = DataGridView1.CurrentRow.Cells(4).Value
     End Sub
 
     Private Function formValidation() As Boolean
 
-        If txtId.Text = "" Or txtCode.Text = "" Or txtName.Text = "" Or txtUnits.Text = "" Or txtDepartmentId.Text = "" Then
+        If txtId.Text = "" Or txtCode.Text = "" Or txtName.Text = "" Or txtUnits.Text = "" Or cmbDpt.Text = "" Then
 
             MsgBox("Inputs can't be empty!")
             Return False
@@ -148,4 +156,12 @@ Public Class frmCourse
 
     End Function
 
+    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByToolStripButton.Click
+        Try
+            Me.DEPARTMENTTableAdapter.FillBy(Me.EnrollmentDBDataSet.DEPARTMENT)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
 End Class
